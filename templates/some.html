@@ -1,0 +1,31 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Variable Submission</title>
+    <style>
+      /* CSS to add border to the table cells, stretch the table horizontally and set equal width for all cells */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; // this ensures that all cells have the same width
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+        overflow: hidden; // this ensures that the content does not overflow the cell
+        text-overflow: ellipsis; // this adds an ellipsis when the content is too long to fit in the cell
+      }
+    </style>
+  </head>
+  <body>
+    <label for="input_variable">변수 입력:</label>
+    <input type="text" name="input_variable" id="input_variable" />
+    <button onclick="sendData()">전송</button>
+    <div id="result"></div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
