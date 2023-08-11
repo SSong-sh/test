@@ -33,15 +33,15 @@
                       </p>
                     </div>
                     <div class="modal-input-form">
-                      <form>
-                        <select name="pannel">
-                          <option selected>1kWp</option>
-                          <option>2kWp</option>
-                          <option>3kWp</option>
-                          <option>4kWp</option>
+                      <form id="capacity-form">
+                        <select name="pannel" id="capacity-select">
+                          <option value="1">1kWp</option>
+                          <option value="2">2kWp</option>
+                          <option value="3">3kWp</option>
+                          <option value="4">4kWp</option>
                         </select>
                       </form>
-                      <button>조건변경</button>
+                      <button onclick="calculateCapacity()">조건변경</button>
                     </div>
                   </div>
                 </div>
@@ -163,6 +163,31 @@
       kakao.maps.load(function () {
         initMap();
       });
+
+      function calculateCapacity() {
+        var selectedValue = document.getElementById("capacity-select").value;
+        console.log(selectedValue);
+        var calculatedCapacity = selectedValue * 1000; // 선택된 값에 1000을 곱함
+
+        // Flask 서버로 계산 결과 전송
+        fetch("/clear_sky", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            input_variable: calculatedCapacity,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // 계산 결과를 이용하여 원하는 동작 수행
+            console.log(data.result); // 예시: 계산 결과를 콘솔에 출력
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
     </script>
   </body>
 </html>
