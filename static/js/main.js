@@ -6,7 +6,11 @@ function sendData() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 'input_variable': inputVariable }),
+        body: JSON.stringify({
+        'capacity': capacity,
+        'latitude': latitude,
+        'longitude': longitude, 
+    }),
     })
     .then(response => response.json())
     .then(data => {
