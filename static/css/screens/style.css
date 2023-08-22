@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+@import url("https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css");
 html,
 body,
 div,
@@ -123,8 +125,6 @@ table {
   border-spacing: 0;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
-@import url("https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css");
 body {
   overflow-x: hidden;
   font-family: "NexonLv1Gothic";
