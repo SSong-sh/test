@@ -6,10 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="static/css/screens/contactstyle.css" />
     <title>Document</title>
-    <script
-      type="text/javascript"
-      src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=48c6f5e4edb390d377fc3cf7623ea78e"
-    ></script>
   </head>
   <body>
     <nav class="navbar">
@@ -38,7 +34,10 @@
             <h2 class="more_title">CONTACT FIELD</h2>
 
             <div class="more_info">
-              <p>조금 더 최적화를 확인하기 위해 아래 양식에 맞춰 이메일을 보내주세요</p>
+              <p>
+                조금 더 최적화를 확인하기 위해 아래 양식에 맞춰 이메일을
+                보내주세요
+              </p>
             </div>
 
             <div class="contact-container">
@@ -58,11 +57,11 @@
                         <label for="user-number" class="user-title"
                           >연락처 *</label
                         >
-                        <input id="user-number" type="number" />
+                        <input id="user-number1" type="number" />
                         -
-                        <input id="user-number" type="number" />
+                        <input id="user-number2" type="number" />
                         -
-                        <input id="user-number" type="number" />
+                        <input id="user-number3" type="number" />
                       </div>
                     </div>
                     <div class="table2">
@@ -253,40 +252,40 @@
                               <tr>
                                 <td>발전량</td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
 
                                 <!-- 추가적인 시간대에 대한 사용량 입력란은 여기에 계속 추가 -->
@@ -318,40 +317,40 @@
                               <tr>
                                 <td>발전량</td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
                                 <td>
-                                  <input class="usage-input" type="text" />
+                                  <input class="solar-input" type="text" />
                                 </td>
 
                                 <!-- 추가적인 시간대에 대한 사용량 입력란은 여기에 계속 추가 -->
@@ -412,18 +411,33 @@
     crossorigin="anonymous"
   ></script>
   <script>
-    // select와 input 요소에 대한 참조 가져오기
-    const emailSelect = document.getElementById("email-select");
-    const emailInput2 = document.getElementById("user-email2");
+    // 문의하기 버튼을 가져옵니다.
+    var submitButton = document.querySelector(".finish");
 
-    // select 요소에 이벤트 리스너 추가
-    emailSelect.addEventListener("change", function () {
-      // 선택된 옵션의 값을 가져오기
-      const selectedOption =
-        emailSelect.options[emailSelect.selectedIndex].value;
+    // 문의하기 버튼에 클릭 이벤트 리스너를 추가합니다.
+    submitButton.addEventListener("click", function (event) {
+      // 기본 동작(페이지 새로고침)을 막습니다.
+      event.preventDefault();
 
-      // 두 번째 input 필드의 값을 선택된 옵션 값으로 설정하기
-      emailInput2.value = selectedOption;
+      // 모든 사용량 input 요소를 선택합니다.
+      var usageInputs = document.querySelectorAll(".usage-input");
+      var solarInputs = document.querySelectorAll(".solar-input");
+      // 결과를 저장할 배열을 생성합니다.
+      var usageValues = [];
+      var solarValues = [];
+
+      // 각 input 요소에서 값을 추출하여 배열에 추가합니다.
+      usageInputs.forEach(function (input) {
+        usageValues.push(input.value);
+      });
+
+      solarInputs.forEach(function (input) {
+        solarValues.push(input.value);
+      });
+
+      // 결과 배열을 콘솔에 출력합니다.
+      console.log(usageValues);
+      console.log(solarValues);
     });
   </script>
 </html>

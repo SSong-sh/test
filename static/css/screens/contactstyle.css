@@ -333,6 +333,11 @@ td {
   text-align: center;
 }
 
+.solar-input {
+  width: 70px;
+  text-align: center;
+}
+
 .submmit-btn {
   text-align: center;
   margin-top: 50px;
